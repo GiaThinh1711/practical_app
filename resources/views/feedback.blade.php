@@ -12,24 +12,28 @@
 <header>
     <h1 style="text-align: center;margin-top: 20px">GET YOUR FEEDBACK</h1>
 </header>
-
+@if(session()->has("success"))
+    <div class="alert alert-success" style="text-align: center">
+        {{ session()->get("success") }}
+    </div>
+@endif
 <form action="{{url('/save')}}" method="post">
     @csrf
     <div class="form-group" style="margin-top: 10px">
         <label for="exampleInputEmail1">Name</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="Your Name" placeholder="Name" required>
+        <input name="name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="Your Name" placeholder="Name" required>
     </div>
     <div class="form-group" style="margin-top: 10px">
         <label for="exampleInputPassword1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Email" required>
+        <input name="email" type="email" class="form-control" id="exampleInputPassword1" placeholder="Email" required>
     </div>
     <div class="form-group" style="margin-top: 10px">
         <label for="exampleInputPassword1">Telephone</label>
-        <input type="tel" class="form-control" id="exampleInputPassword1" placeholder="Your Telephone" required>
+        <input name="phone" type="tel" class="form-control" id="exampleInputPassword1" placeholder="Your Telephone" required>
     </div>
     <div class="form-group" style="margin-top: 10px">
         <label for="exampleInputPassword1">Your Feedback</label>
-        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Feedback" required>
+        <input name="feedback" type="text" class="form-control" id="exampleInputPassword1" placeholder="Feedback" required>
     </div>
     <button type="submit" class="btn btn-primary" style="margin-top: 10px">Send</button>
 </form>

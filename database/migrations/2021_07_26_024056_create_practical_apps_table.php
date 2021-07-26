@@ -15,7 +15,7 @@ class CreatePracticalAppsTable extends Migration
     {
         Schema::create('practical_apps', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
+            $table->string("name")->nullable();
             $table->string("email")->unique();
             $table->integer("phone")->nullable();
             $table->text("feedback")->nullable();
